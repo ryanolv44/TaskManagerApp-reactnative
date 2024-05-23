@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, Button } from 'react-native';
+import { View, Text, TextInput, StyleSheet } from 'react-native';
+import { Button } from 'react-native-paper';
 import axios from 'axios';
 
 export default function UserFormScreen({ route, navigation }) {
@@ -22,12 +23,47 @@ export default function UserFormScreen({ route, navigation }) {
   };
 
   return (
-    <View>
-      <Text>Name</Text>
-      <TextInput value={name} onChangeText={setName} />
-      <Text>Email</Text>
-      <TextInput value={email} onChangeText={setEmail} />
-      <Button title="Save" onPress={handleSubmit} />
+    <View style={styles.container}>
+      <Text style={styles.label}>Name</Text>
+      <TextInput
+        style={styles.input}
+        value={name}
+        onChangeText={setName}
+      />
+      <Text style={styles.label}>Email</Text>
+      <TextInput
+        style={styles.input}
+        value={email}
+        onChangeText={setEmail}
+      />
+      <Button
+        mode="contained"
+        onPress={handleSubmit}
+        style={styles.button}
+      >
+        Save
+      </Button>
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    padding: 16,
+  },
+  label: {
+    fontSize: 16,
+    marginVertical: 8,
+  },
+  input: {
+    borderBottomWidth: 1,
+    marginBottom: 16,
+    padding: 8,
+    fontSize: 16,
+  },
+  button: {
+    marginTop: 16,
+    backgroundColor: 'tomato',
+  },
+});
