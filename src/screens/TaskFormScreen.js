@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, StyleSheet, Switch } from 'react-native';
-import { Button } from 'react-native-paper';
+import { View, Text, TextInput, StyleSheet, Switch, TouchableOpacity } from 'react-native';
 import axios from 'axios';
 
 export default function TaskFormScreen({ route, navigation }) {
@@ -43,13 +42,12 @@ export default function TaskFormScreen({ route, navigation }) {
         onChangeText={setUserId}
         keyboardType="numeric"
       />
-      <Button
-        mode="contained"
-        onPress={handleSubmit}
+      <TouchableOpacity
         style={styles.button}
+        onPress={handleSubmit}
       >
-        Save
-      </Button>
+        <Text style={styles.buttonText}>Save</Text>
+      </TouchableOpacity>
     </View>
   );
 }
@@ -70,7 +68,13 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
   button: {
-    marginTop: 16,
     backgroundColor: 'tomato',
+    padding: 16,
+    borderRadius: 4,
+    alignItems: 'center',
+  },
+  buttonText: {
+    color: '#fff',
+    fontSize: 16,
   },
 });

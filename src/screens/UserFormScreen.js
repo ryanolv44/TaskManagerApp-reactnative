@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, StyleSheet } from 'react-native';
-import { Button } from 'react-native-paper';
+import { View, Text, TextInput, StyleSheet, TouchableOpacity } from 'react-native';
 import axios from 'axios';
 
 export default function UserFormScreen({ route, navigation }) {
@@ -35,14 +34,14 @@ export default function UserFormScreen({ route, navigation }) {
         style={styles.input}
         value={email}
         onChangeText={setEmail}
+        keyboardType="email-address"
       />
-      <Button
-        mode="contained"
-        onPress={handleSubmit}
+      <TouchableOpacity
         style={styles.button}
+        onPress={handleSubmit}
       >
-        Save
-      </Button>
+        <Text style={styles.buttonText}>Save</Text>
+      </TouchableOpacity>
     </View>
   );
 }
@@ -63,7 +62,13 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
   button: {
-    marginTop: 16,
     backgroundColor: 'tomato',
+    padding: 16,
+    borderRadius: 4,
+    alignItems: 'center',
+  },
+  buttonText: {
+    color: '#fff',
+    fontSize: 16,
   },
 });
