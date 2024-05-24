@@ -28,8 +28,9 @@ export default function UsersScreen({ navigation }) {
         keyExtractor={item => item.id.toString()}
         renderItem={({ item }) => (
           <View style={styles.card}>
-            <Text style={styles.name}>{item.name}</Text>
-            <Text style={styles.email}>{item.email}</Text>
+            <Text style={styles.name}>Name: {item.name}</Text>
+            <Text style={styles.email}>Email: {item.email}</Text>
+            <Text style={styles.id}>ID: {item.id}</Text> {/* Exibindo o ID do usuário */}
             <View style={styles.buttonsContainer}>
               <TouchableOpacity
                 style={styles.button}
@@ -74,6 +75,10 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   email: {
+    fontSize: 16,
+    color: 'gray',
+  },
+  id: {
     fontSize: 16,
     color: 'gray',
   },

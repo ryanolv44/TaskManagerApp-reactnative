@@ -6,6 +6,7 @@ export default function UserFormScreen({ route, navigation }) {
   const user = route.params?.user || {};
   const [name, setName] = useState(user.name || '');
   const [email, setEmail] = useState(user.email || '');
+  const [id, setId] = useState(user.id || ''); // Adicionando estado para o ID
 
   const handleSubmit = () => {
     const userData = { name, email };
@@ -23,6 +24,13 @@ export default function UserFormScreen({ route, navigation }) {
 
   return (
     <View style={styles.container}>
+      <Text style={styles.label}>ID</Text>
+      <TextInput
+        style={styles.input}
+        value={id.toString()}
+        onChangeText={setId}
+        editable={false} // Para evitar a edição do ID
+      />
       <Text style={styles.label}>Name</Text>
       <TextInput
         style={styles.input}
