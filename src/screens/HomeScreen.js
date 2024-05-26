@@ -4,11 +4,11 @@ import { View, Text, Button, StyleSheet, ImageBackground, TouchableOpacity } fro
 export default function HomeScreen({ navigation }) {
   return (
     <ImageBackground
-      source={{ uri: 'https://img.freepik.com/vetores-gratis/simples-vetor-de-fundo-laranja-em-branco-para-negocios_53876-174945.jpg?size=338&ext=jpg&ga=GA1.1.672697106.1714521600&semt=ais' }}
+      source={{ uri: 'https://cdn.vectorstock.com/i/500p/45/55/geometric-abstract-orange-background-presentation-vector-50774555.jpg' }}
       style={styles.background}
     >
       <View style={styles.container}>
-        <Text style={styles.title}>Home</Text>
+        <Text style={styles.title}>Task Manager App</Text>
         <TouchableOpacity
           style={styles.button}
           onPress={() => navigation.navigate('Users')}
